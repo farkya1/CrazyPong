@@ -10,6 +10,11 @@ public class Ball : MonoBehaviour
 
     Rigidbody rigid;
 
+    public AudioClip ballHit;
+
+    public AudioSource audioSource;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +58,10 @@ public class Ball : MonoBehaviour
             vel = new Vector3(1, yDelta, 0);
             vel = vel.normalized * speed;
 
+            Score.ScoreIncrease();
+
+            audioSource.PlayOneShot(ballHit);
+
         }
 
         AIControl ai = collision.gameObject.GetComponent<AIControl>();
@@ -65,9 +74,17 @@ public class Ball : MonoBehaviour
             vel = new Vector3(-1, yDelta, 0);
             vel = vel.normalized * speed;
 
+            Score.ScoreIncrease();
+
+            audioSource.PlayOneShot(ballHit);
+
         }
 
+        
+
         rigid.velocity = vel;
+
+        
 
     }
 
@@ -76,6 +93,7 @@ public class Ball : MonoBehaviour
         if (transform.position.x < -16 || transform.position.x > 16)
         {
             Reset();
+            Score.Reset();
         }
     }
 
