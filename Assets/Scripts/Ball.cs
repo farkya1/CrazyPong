@@ -31,6 +31,11 @@ public class Ball : MonoBehaviour
         vel.x = Random.Range(-1f, 1f);
         vel.y = Random.Range(-1f, 1f);
 
+        if (Mathf.Abs(vel.x) < 0.4f)
+        {
+            Reset();
+        }
+
         vel.Normalize();
 
         vel *= startSpeed;
@@ -52,15 +57,17 @@ public class Ball : MonoBehaviour
 
         if (pc != null)
         {
+            audioSource.PlayOneShot(ballHit);
             float yDelta = transform.position.y - pc.transform.position.y;
             yDelta = yDelta * 2 / pc.transform.localScale.y;
 
             vel = new Vector3(1, yDelta, 0);
+            
             vel = vel.normalized * speed;
 
             Score.ScoreIncrease();
 
-            audioSource.PlayOneShot(ballHit);
+            
 
         }
 
@@ -68,15 +75,18 @@ public class Ball : MonoBehaviour
 
         if (ai != null)
         {
+            audioSource.PlayOneShot(ballHit);
             float yDelta = transform.position.y - ai.transform.position.y;
             yDelta = yDelta * 2 / ai.transform.localScale.y;
 
             vel = new Vector3(-1, yDelta, 0);
+            
             vel = vel.normalized * speed;
+            
 
             Score.ScoreIncrease();
 
-            audioSource.PlayOneShot(ballHit);
+            
 
         }
 
