@@ -62,12 +62,12 @@ public class Ball : MonoBehaviour
             yDelta = yDelta * 2 / pc.transform.localScale.y;
 
             vel = new Vector3(1, yDelta, 0);
-            
+
             vel = vel.normalized * speed;
 
             Score.ScoreIncrease();
 
-            
+
 
         }
 
@@ -80,21 +80,21 @@ public class Ball : MonoBehaviour
             yDelta = yDelta * 2 / ai.transform.localScale.y;
 
             vel = new Vector3(-1, yDelta, 0);
-            
+
             vel = vel.normalized * speed;
-            
+
 
             Score.ScoreIncrease();
 
-            
+
 
         }
 
-        
+
 
         rigid.velocity = vel;
 
-        
+
 
     }
 

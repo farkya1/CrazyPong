@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StrikeBall : MonoBehaviour
 {
-    public Paddle paddle;
+    public FancyMove move;
 
 
 
@@ -15,7 +15,7 @@ public class StrikeBall : MonoBehaviour
 
         if (ball != null)
         {
-            paddle.Swing();
+            move.Swing();
         }
         
         
