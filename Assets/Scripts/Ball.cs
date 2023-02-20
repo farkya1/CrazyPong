@@ -31,7 +31,7 @@ public class Ball : MonoBehaviour
         vel.x = Random.Range(-1f, 1f);
         vel.y = Random.Range(-1f, 1f);
 
-        if (Mathf.Abs(vel.x) < 0.4f)
+        if (Mathf.Abs(vel.x) < 0.9f)
         {
             Reset();
         }
