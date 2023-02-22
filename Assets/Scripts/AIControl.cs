@@ -19,6 +19,11 @@ public class AIControl : MonoBehaviour
         startPos = transform.position;
     }
 
+    public void SetBall(ref GameObject ballGO)
+    {
+        ball = ballGO;
+    }
+
     private void Update()
     {
 

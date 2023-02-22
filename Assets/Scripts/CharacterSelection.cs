@@ -16,7 +16,8 @@ public class CharacterSelection : MonoBehaviour
     public void NextCharacter()
     {
         characters[selectedCharacter].SetActive(false);
-        characters[(selectedCharacter + 1) % characters.Length].SetActive(false);
+        selectedCharacter = (selectedCharacter + 1) % characters.Length;
+        characters[selectedCharacter].SetActive(true);
     }
 
     public void PrevCharacter()
@@ -32,7 +33,7 @@ public class CharacterSelection : MonoBehaviour
         characters[selectedCharacter].SetActive(true);
     }
 
-    public void Start()
+    public void StartGame()
     {
         if (!rightCharacter)
         {
@@ -43,7 +44,7 @@ public class CharacterSelection : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("selectedRightCharacter", selectedCharacter);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("Volley 1");
         }
     }
 
