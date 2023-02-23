@@ -8,7 +8,7 @@ public class AIControl : MonoBehaviour
 
     [Header("Inscribed")]
 
-    public float yLimit = 7.5f;
+    public float yLimit = 7.25f;
 
     Vector3 startPos;
 

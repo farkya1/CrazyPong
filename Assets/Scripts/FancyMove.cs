@@ -8,7 +8,7 @@ public class FancyMove : MonoBehaviour
 
 
 
-
+    public GameObject particles;
 
     public float time = Mathf.Infinity;
     public float duration = 1;
