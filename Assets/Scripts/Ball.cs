@@ -10,9 +10,6 @@ public class Ball : MonoBehaviour
 
     Rigidbody rigid;
 
-    public AudioClip ballHit;
-
-    public AudioSource audioSource;
 
 
     // Start is called before the first frame update
@@ -55,9 +52,9 @@ public class Ball : MonoBehaviour
 
         PlayerControl pc = collision.gameObject.GetComponent<PlayerControl>();
 
+
         if (pc != null)
         {
-            audioSource.PlayOneShot(ballHit);
             float yDelta = transform.position.y - pc.transform.position.y;
             yDelta = yDelta * 2 / pc.transform.localScale.y;
 
@@ -67,6 +64,8 @@ public class Ball : MonoBehaviour
 
             Score.ScoreIncrease();
 
+            FancyMove sound = collision.gameObject.GetComponentInChildren<FancyMove>();
+            sound.PlaySound();
 
 
         }
@@ -75,7 +74,6 @@ public class Ball : MonoBehaviour
 
         if (ai != null)
         {
-            audioSource.PlayOneShot(ballHit);
             float yDelta = transform.position.y - ai.transform.position.y;
             yDelta = yDelta * 2 / ai.transform.localScale.y;
 
@@ -85,7 +83,8 @@ public class Ball : MonoBehaviour
 
 
             Score.ScoreIncrease();
-
+            FancyMove sound = collision.gameObject.GetComponentInChildren<FancyMove>();
+            sound.PlaySound();
 
 
         }

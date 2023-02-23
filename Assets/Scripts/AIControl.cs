@@ -6,13 +6,14 @@ public class AIControl : MonoBehaviour
 {
     public GameObject ball;
 
-    [Header("Inscribed")]
 
     public float yLimit = 7.25f;
+    public float speed = 10;
 
     Vector3 startPos;
 
-    float ballYPos;
+
+    Vector2 forward = Vector2.left;
 
     private void Start()
     {
@@ -28,13 +29,29 @@ public class AIControl : MonoBehaviour
     {
 
 
-        Vector3 pos = startPos;
 
-        pos.y = ball.GetComponent<Transform>().position.y;
+        float targetYPosition = GetNewYPosition();
 
-        pos.y = Mathf.Clamp(pos.y, -yLimit, yLimit);
+        transform.position = new Vector3(transform.position.x, targetYPosition, transform.position.z);
 
-        transform.position = pos;
+    }
 
+    private float GetNewYPosition()
+    {
+        float output = transform.position.y;
+
+        if (BallIncoming())
+        {
+            output = Mathf.MoveTowards(transform.position.y, ball.transform.position.y, speed * Time.deltaTime);
+        }
+        output = Mathf.Clamp(output, -yLimit, yLimit);
+        return output;
+    }
+
+    private bool BallIncoming()
+    {
+        float dotProduct = Vector2.Dot(ball.GetComponent<Rigidbody>().velocity, forward);
+
+        return dotProduct < 0f;
     }
 }
