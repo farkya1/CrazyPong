@@ -826,12 +826,14 @@ MonoBehaviour:
   - {fileID: 6936585114635466281, guid: 04136ee3f588f6e439dda6e0a22e3c62, type: 3}
   - {fileID: 7433037040648337074, guid: fce2de5473cbe794d8aa7bea0878b792, type: 3}
   - {fileID: 3651212814342619494, guid: 894fbec67a8ed034cabb8222b09576d7, type: 3}
+  - {fileID: 2175992080769119140, guid: 877d11fb7c6179143a7498313cbe9f78, type: 3}
   leftSpawnPoint: {fileID: 941272676}
   rightCharacters:
   - {fileID: 5992197140275344877, guid: 4e17953589f409e48bd382aba68e336a, type: 3}
   - {fileID: 7638565957265460919, guid: da2d36a6fa5b1954c966cd5b86bed400, type: 3}
   - {fileID: 3066833596769594766, guid: 908525d30a81e634cad545489d1c40a0, type: 3}
   - {fileID: 7733676554585092302, guid: 0c4c3f393c394e34489d707af31b3b2d, type: 3}
+  - {fileID: 1040705483605518833, guid: 3047882f192bbf54287fd9c159be46f3, type: 3}
   rightSpawnPoint: {fileID: 748983468}
   ball: {fileID: 1980151881}
 --- !u!1 &1980151881

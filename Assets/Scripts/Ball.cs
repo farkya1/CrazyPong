@@ -50,15 +50,15 @@ public class Ball : MonoBehaviour
 
         vel = vel.normalized * speed;
 
-        PlayerControl pc = collision.gameObject.GetComponent<PlayerControl>();
+        FancyMove pc = collision.gameObject.GetComponentInChildren<FancyMove>();
 
 
         if (pc != null)
         {
             float yDelta = transform.position.y - pc.transform.position.y;
-            yDelta = yDelta * 2 / pc.transform.localScale.y;
+            yDelta = yDelta * 10 / pc.transform.localScale.y;
 
-            vel = new Vector3(1, yDelta, 0);
+            vel = new Vector3(-transform.position.x, yDelta, 0);
 
             vel = vel.normalized * speed;
 
@@ -70,7 +70,7 @@ public class Ball : MonoBehaviour
 
         }
 
-        AIControl ai = collision.gameObject.GetComponent<AIControl>();
+/*        AIControl ai = collision.gameObject.GetComponent<AIControl>();
 
         if (ai != null)
         {
@@ -87,7 +87,7 @@ public class Ball : MonoBehaviour
             sound.PlaySound();
 
 
-        }
+        }*/
 
 
 

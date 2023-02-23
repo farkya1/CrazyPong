@@ -8,7 +8,7 @@ public class AIControl : MonoBehaviour
 
 
     public float yLimit = 7.25f;
-    public float speed = 10;
+    public float speed = 22;
 
     Vector3 startPos;
 
